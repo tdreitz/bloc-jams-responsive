@@ -3,32 +3,40 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Bloc Base Project</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../app/styles/normalize.css">
+    <link rel="stylesheet" href="../../app/styles/style.css">
+    <link rel="stylesheet" href="../../app/styles/landing.css">
 </head>
-<body>
-    <div> <!-- Nav Bar -->
-    </div>
+<body class="landing">
+    <nav class="navbar"> <!-- Nav Bar -->
+      <img src="../../app/assets/images/bloc_jams_logo.png" alt="logo" class="logo">
+    </nav>
 
-    <div><!-- Hero content -->
-      <h1> Bloc Jams </h1>
-      <h3> Turn the music up! </h3>
-    </div>
+    <section class="hero-content"><!-- Hero content -->
+      <h1 class="hero-title"> Turn the music up! </h1>
+    </section>
 
-    <div><!-- Selling Points -->
-      <div>
-        <h5> Choose your music </h5>
-        <p> The world is full of music; why should you have to listen to music someone else chose</p>
+    <section class="selling-points container"><!-- Selling Points -->
+      <div class="point column third">
+        <span class="ion-music-note"></span>
+        <h5 class="point-title"> Choose your music </h5>
+        <p class="point-description"> The world is full of music; why should you have to listen to music someone else chose</p>
       </div>      
-      <div>
-        <h5> Choose your music </h5>
-        <p> The world is full of music; why should you have to listen to music someone else chose</p>
-      </div>
-      <div>
-        <h5> Choose your music </h5>
-        <p> The world is full of music; why should you have to listen to music someone else chose</p>
-      </div>
-    </div>
+      <div class="point column third">
+        <span class="ion-radio-waves"></span>
+        <h5 class="point-title"> Choose your music </h5>
+        <p class="point-description"> The world is full of music; why should you have to listen to music someone else chose</p>
+      </div>  
+      <div class="point column third">
+        <span class="ion-iphone"></span>
+        <h5 class="point-title"> Choose your music </h5>
+        <p class="point-description"> The world is full of music; why should you have to listen to music someone else chose</p>
+      </div>  
+    </section>
 
-    <script src="/scripts/app.js"></script>
+    <script src="../../app/scripts/app.js"></script>
 </body>
 </html>
