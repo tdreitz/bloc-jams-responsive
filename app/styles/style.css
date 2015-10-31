@@ -35,7 +35,7 @@ body.landing {
   display: table;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 2rem;
   height: 100px;
   color: white;
   text-decoration: none;
