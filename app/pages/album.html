@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../app/styles/normalize.css">
   <link rel="stylesheet" href="../../app/styles/style.css">
   <link rel="stylesheet" href="../../app/styles/album.css">
+  <link rel="stylesheet" href="../../app/styles/player_bar.css">
 </head>
 <body class="album">
 
@@ -34,6 +35,44 @@
     </section>
     <table class="album-view-song-list"></table>
   </main>
+
+  <section class="player-bar">
+    <div class="container">
+      <div class="control-group main-controls">
+        <a class="previous">
+          <span class="ion-skip-backward"></span>
+        </a>
+        <a class="play-pause">
+          <span class="ion-play"></span>
+        </a>
+        <a class="next">
+          <span class="ion-skip-forward"></span>
+        </a>
+      </div>
+
+      <div class="control-group currently-playing">
+        <h2 class="artist-song-mobile">My Dumb Song - Fallout Boy</h2>
+
+          <h2 class="song-name">My Dumb Song</h2>
+        <h2 class="artist-name">Fallout Boy</h2>
+        <div class="seek-control">
+          <div class="seek-bar">
+            <div class="fill"></div>
+            <div class="thumb"></div>
+          </div>
+          <div class="current-time">2:30</div>
+          <div class="total-time">4:45</div>
+        </div>
+      </div>
+        
+      <div class="control-group volume">
+        <span class="ion-volume-high icon"></span>
+        <div class="seek-bar"></div>
+          <div class="fill"></div>
+          <div class="thumb"></div>
+      </div>
+    </div>
+  </section>
 
   <script src="../../app/scripts/album.js"></script>
 </body>
