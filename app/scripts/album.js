@@ -38,45 +38,45 @@ var createSongRow = function(songNumber,songTitle,songDuration) {
   ;
 
   var $row = $(template);
-
-  var clickHandler = function () {
-
-    var songNumber = $(this).attr('data-song-number');
-
-      if (currentlyPlayingSong !== null) {
-        var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSong + '"]');
-        currentlyPlayingCell.html(currentlyPlayingSong);
-      }
-      if (currentlyPlayingSong !== songNumber) {
-        $(this).html(pauseButtonTemplate);
-        currentlyPlayingSong === songNumber;
-      }
-      else if (currentlyPlayingSong === songNumber) {
-        $(this).html(playButtonTemplate);
-        currentlyPlayingSong = null;
-      }
-  };
   
-  var onHover = function(event) {
-    var songNumberCell = $(this).find('.song-item-number');
-    var songNumber = songNumberCell.attr('data-song-number');
-
-    if (songNumber !== currentlyPlayingSong) {
-      songNumberCell.html(playButtonTemplate);
-    }
-  };
-
-  var offHover = function(event) {
-    var songNumberCell = $(this).find('.song-item-number');
-    var songNumber = songNumberCell.attr('data-song-number');
-
-    if (songNumber !== currentlyPlayingSong) {
-      songNumberCell.html(songNumber);
+  var clickHandler = function() {
+    var $songNumTableCell = $(this).find('.song-item-number');
+    
+    if (currentlyPlayingSong === null) {
+      $songNumTableCell.html(pauseButtonTemplate);
+      currentlyPlayingSong = $songNumTableCell.attr('data-song-number');
+    } else if (currentlyPlayingSong === $songNumTableCell.attr('data-song-number')) {
+      $songNumTableCell.html(playButtonTemplate);
+      currentlyPlayingSong = null;
+    } else if (currentlyPlayingSong !== $songNumTableCell.attr('data-song-number')) {
+      $songNumTableCell.html(pauseButtonTemplate);
+      var $currentlyPlayingSongElement = $('[data-song-number="' + currentlyPlayingSong + '"]')/*.attr('data-song-number')*/;
+      $currentlyPlayingSongElement.html(currentlyPlayingSong);
+      currentlyPlayingSong = $songNumTableCell.attr('data-song-number');
     }
   };
   
-  $row.find('.song-item-number').click(clickHandler);
-  $row.hover(onHover, offHover);
+  var onHover = function() {
+    var $getElem = $(this).find('.song-item-number');
+    var $getElemData = $getElem.attr('data-song-number');
+    
+    if ($getElemData !== currentlyPlayingSong) {
+      $getElem.html(playButtonTemplate);
+    }
+  };
+  
+  var offHover = function() {
+    
+    var $getElem = $(this).find('.song-item-number');
+    var $getElemData = $getElem.attr('data-song-number');
+    
+    if($getElemData !== currentlyPlayingSong) {
+      $getElem.html($getElemData);
+    }
+  };
+  
+  $row.click(clickHandler);
+  $row.hover(onHover,offHover);
   return $row;
 };
 
@@ -107,6 +107,8 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 $(document).ready(function() {
+
   setCurrentAlbum(albumPicasso);
-});
+
+}); 
 
