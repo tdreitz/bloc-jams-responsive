@@ -26,7 +26,7 @@ var createSongRow = function(songNumber,songTitle,songDuration) {
       currentlyPlayingSongNumber = parseInt($songNumTableCell.attr('data-song-number'));
       currentSongFromAlbum = currentAlbum.songs[currentlyPlayingSongNumber - 1];
       updatePlayerBarSong();
-    } else if (currentlyPlayingSongNumber === $songNumTableCell.attr('data-song-number')) {
+    } else if (currentlyPlayingSongNumber === parseInt($songNumTableCell.attr('data-song-number'))) {
       $songNumTableCell.html(playButtonTemplate);
       currentlyPlayingSongNumber = null;
       $('.main-controls .play-pause').html(playerBarPlayButton);
@@ -38,8 +38,6 @@ var createSongRow = function(songNumber,songTitle,songDuration) {
       currentSongFromAlbum = currentAlbum.songs[currentlyPlayingSongNumber - 1];
       updatePlayerBarSong();
     };
-
-    console.log(typeof(currentlyPlayingSongNumber));
   };
   
   var onHover = function() {
@@ -59,8 +57,6 @@ var createSongRow = function(songNumber,songTitle,songDuration) {
     if($getElemData !== currentlyPlayingSongNumber) {
       $getElem.html($getElemData);
     }
-
-    console.log("songNumber type is " + typeof($getElemData) + "\n and currentlyPlayingSongNumber type is " + typeof(currentlyPlayingSongNumber));
   };
   
   $row.click(clickHandler);
@@ -152,8 +148,6 @@ var previousSong = function() {
   $previousSongNumberCell.html(pauseButtonTemplate);
   $lastSongNumberCell.html(currentlyPlayingSongNumber);
 };
-
-console.log(typeof(currentlyPlayingSongNumber));
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
