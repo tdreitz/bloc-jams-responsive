@@ -130,11 +130,18 @@ var setCurrentAlbum = function(album) {
   }
 };
 
+var setCurrentTimeInPlayerBar = function(currentTime) {
+  var playerBarTimer = $('.currently-playing .current-time');
+  playerBarTimer.html(currentTime);
+};
+
 var updateSeekBarWhileSongPlays = function() {
   if (currentSoundFile) {
     currentSoundFile.bind('timeupdate', function(event) {
       var seekBarFillRatio = this.getTime() / this.getDuration();
       var $seekBar = $('.seek-control .seek-bar');
+      var timer = buzz.toTimer(this.getTime());
+      setCurrentTimeInPlayerBar(timer.slice(1));
 
       updateSeekPercentage($seekBar, seekBarFillRatio);
     });
